@@ -1,0 +1,56 @@
+<!-- load -->
+<div id="ID_Load" class="load">
+  <!-- La carga de img se realiza por css (optimo) -->
+  <img>
+  <div class="lds-ellipsis">          
+    <div></div><div></div><div></div><div></div>          
+  </div> 
+</div>
+<!-- /load -->
+
+<!-- modal -->
+<button id="ID_HDRamosMendoza" type="button" class="btn btn-primary d-sm-none" data-toggle="modal" data-target="#ID_Modal" style="display: none;"></button>
+<div class="modal fade" id="ID_Modal" tabindex="-1" role="dialog" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          <i class="fa fa-globe"></i> {{nls.modal.title}}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p [innerHTML]="content" class="text-justify"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
+          <i class="fa fa-close"></i>&nbsp;{{nls.button.name}}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /modal -->
+
+<!-- content -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- block-map -->
+    <div class="col-sm-12 col-md-6 bg-info" style="padding: 0;">
+      <app-map></app-map>
+    </div>
+    <!-- /block-map -->
+    <!-- block-right -->
+    <div class="col-sm-12 col-md-6 block-right scroll-container">      
+      <!-- SideBar right-->
+      <app-sidebar></app-sidebar>
+      <!-- /SideBar right-->
+    </div>
+    <!-- /block-right -->
+  </div>
+</div>
+<!-- /content -->
+
+<router-outlet></router-outlet>

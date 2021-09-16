@@ -1,0 +1,60 @@
+.div-content {
+  position: relative;
+}
+.div-content-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 150;
+    box-sizing: border-box;
+}
+.div-content-icon i {
+    padding: 5px;
+}
+.div-icon {
+    border: 1px solid white;
+    cursor: pointer;
+    float: right;
+    margin-left: 5px;
+    width: 28px;
+    text-align: center;
+}
+fieldset .div-img {
+    text-align: center;
+}
+
+fieldset .div-img div {
+    /*border-right: 1px solid #212529;*/
+    box-sizing: border-box;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding-right: 5px;
+}
+fieldset .div-img div figure{
+    width: 165px;
+    height: 88px;
+    margin: 0 0 5px;
+}
+/*
+fieldset .div-img div.divBorder {
+    border-right: 0 solid #212529 !important;
+}
+*/
+fieldset .div-img div img {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    background-color: white !important;
+}
+canvas {
+    background-color: white;
+    width: 100%;
+  }
+
+.chart-container {
+    position: relative;
+    height: 380px;
+    width: 100%;
+}

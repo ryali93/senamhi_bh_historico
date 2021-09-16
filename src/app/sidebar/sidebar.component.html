@@ -1,0 +1,493 @@
+<nav>
+  <div class="nav nav-tabs device-small" id="nav-tab" role="tablist">
+    <a class="nav-link active" id="nav-home-tab" 
+      data-toggle="tab"
+      href="#nav-home" 
+      role="tab" 
+      aria-controls="nav-home" aria-selected="true">
+      {{nls.tab.tabFisrt}}
+    </a> 
+    <a class="nav-link" id="nav-profile-tab" 
+      data-toggle="tab"
+      href="#nav-profile" 
+      role="tab" 
+      aria-controls="nav-profile" 
+      aria-selected="false">
+      {{nls.tab.tabSecond}}
+    </a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent" style="background-color: #e8f1f1 !important;">
+  <div class="tab-pane fade show active" id="nav-home" 
+        role="tabpanel" aria-labelledby="nav-home-tab">
+    <form >
+      <!--
+      <fieldset class="p-3" style="border-bottom: 1px solid #dee2e6 !important; border-left: 1px solid #dee2e6 !important; border-right: 1px solid #dee2e6 !important; border-top: 1px solid #dee2e6 !important; ">
+      -->
+      <fieldset class="p-3">
+        <!--<legend style="margin: 0!important;">{{nls.tab.tabFisrt}}</legend>-->
+        <section class="mediaQuery-Sponsor" style="font-size: 12px;">
+          <section class="div-img">
+            <div>
+              <figure>
+                <img [src]="imageGestion"/>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <figcaption><h6>{{nls.sponsor.subTitle_04}}</h6></figcaption>
+                <img [src]="imageSuiza"/>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <figcaption><h6>{{nls.sponsor.subTitle_03}}</h6></figcaption>
+                <img [src]="imageLibelula"/>
+              </figure>
+            </div>
+            <div>
+              <figure>
+                <img [src]="imageSsn"/>
+              </figure>              
+            </div>
+          </section>
+          <section class="p-1" style="background-color:#ffffff !important;">
+            <p [innerHTML]="content" class="text-justify" style="margin-bottom: 0 !important;">
+              <!-- <a href={{nls.link.mdpi}} target="_bank" class="link-primary">
+                {{nls.a.font}}
+              </a> -->
+            </p>    
+          </section>      
+          <hr style="margin: 10px 0;">
+        </section>
+        <!--<hr style="background-color: white; margin: 10px 0;"> -->
+        
+        <section class="form-group row text-center" style="margin-bottom: 8px;">
+            <div class="col-6">
+                <div class="form-check">
+                    <input class="form-check-input input-sm" type="radio" id="{{ID_Tab01}}" value="{{Tab01}}" 
+                      [formControl]="radioGroup" [(ngModel)]="defaultRadio" (change)="onChangeRadio($event.target)">
+                    <label class="form-check-label" for="{{ID_Tab01}}">
+                      {{nls.checkBox.checkBoxFisrt}}
+                    </label>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-check">
+                    <input class="form-check-input input-sm" type="radio" id="{{ID_Tab02}}" value="{{Tab02}}" 
+                      [formControl]="radioGroup" [(ngModel)]="defaultRadio" (change)="onChangeRadio($event.target)">
+                    <label class="form-check-label" for="{{ID_Tab02}}">
+                        {{nls.checkBox.checkBoxSecond}}
+                    </label>
+                </div>
+            </div>
+            <!-- <div class="col-6">
+                <button type="button" class="btn btn-success btn-sm pull-right">
+                    <i class="fa fa-download" aria-hidden="true"></i>
+                    {{nls.button.download}}
+                </button>
+            </div> -->
+        </section>
+        <!-- <input type="text" [formControl]="emailCtrl" style="display: none;">
+        <p>
+          <small *ngIf="emailCtrl.hasError('required') && emailCtrl.dirty">Este campo es obligatorio</small>
+        </p> -->
+        <section class="row">
+          <!-- CBO - Cuenca -->
+          <div class="col-md-6">
+            <div class="form-group" style="margin-bottom: 11px;">
+              <select id="ID_Cuenca" class="form-control form-control-sm" (change)="onChangeCuenca($event)">
+                <option *ngFor="let item of listOptionCuenca" value="{{item.value}}" [selected]="item.value===137554">
+                  {{item.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+          <!-- CBO - Variables -->
+          <div class="col-md-6">
+            <div class="form-group" style="margin-bottom: 11px;">
+              <select class="form-control form-control-sm"
+                (change)="onChangeVariable($event)">
+                <option *ngFor="let item of listOptionEscenario" value="{{item.value}}" [selected]="item.value==='bh_pc'">
+                  {{item.name}}
+                </option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <hr style="margin: 0 0 5px 0;">
+
+        <div id="{{ID_Tab01}}_Content">
+          <ul class="nav nav-pills mb-1 justify-content-center" id="pills-tab" role="tablist">
+            <li class="nav-item btn-xs" role="presentation">
+              <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
+                <i class="fa fa-bar-chart"></i>&nbsp;
+                {{nls.result.tab01_01}}
+              </a>
+            </li>
+            <li class="nav-item btn-xs" role="presentation">
+              <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+                <i class="fa fa-bar-chart"></i>&nbsp;
+                {{nls.result.tab01_02}}
+              </a>
+            </li>
+          </ul>
+          
+          <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+              <div class="div-content">
+                <!--Download-->
+                <div class="div-content-icon">
+                  <div class="div-icon bg-warning" placement="left" ngbTooltip="{{nls.toolTip.graphic}}" (click)="exportGraphic('_chartBHMensual')">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  </div>
+                  <div class="div-icon bg-success" placement="left" ngbTooltip="{{nls.toolTip.export}}" (click)="exportExcel('_chartBHMensual')">
+                    <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <!--/Download--> 
+                <!-- height="120" -->
+                <div class="chart-container">
+                  <canvas id="ID_BHMensual"></canvas>
+                </div>
+              </div>
+              <hr style="margin: 10px 0;">
+              <div class="div-content">
+                <!--Download-->
+                <div class="div-content-icon">
+                  <div class="div-icon bg-warning" placement="left" ngbTooltip="{{nls.toolTip.graphic}}" (click)="exportGraphic('_chartBHHistorico')">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  </div>
+                  <div class="div-icon bg-success" placement="left" ngbTooltip="{{nls.toolTip.export}}" (click)="exportExcel('_chartBHHistorico')">
+                    <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <!--/Download-->
+                <!-- height="120" -->
+                <div class="chart-container">
+                  <canvas id="ID_BHHistorico"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+              
+              <div class="div-content">
+                <!--Download-->
+                <div class="div-content-icon">
+                  <div class="div-icon bg-warning" placement="left" ngbTooltip="{{nls.toolTip.graphic}}" (click)="exportGraphic('_chartPC')">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  </div>
+                  <div class="div-icon bg-success" placement="left" ngbTooltip="{{nls.toolTip.export}}" (click)="exportExcel('_chartPC')">
+                    <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                  </div>
+                  <input id="heber" class="toggleCheckbox" type="checkbox" data-width="100" data-size="xs" data-toggle="toggle" data-chart="_chartPC" data-variable="bh_pc"  
+                    data-on="Mensual" data-off="Diario" data-onstyle="info" data-offstyle="info" checked>
+                </div>
+                <!--/Download-->
+                <!-- height="110" -->
+                <canvas id="ID_BHPC"></canvas>                  
+              </div>
+
+              <hr style="margin: 10px 0;">
+
+              <div class="div-content">
+                <!--Download-->
+                <div class="div-content-icon">
+                  <div class="div-icon bg-warning" placement="left" ngbTooltip="{{nls.toolTip.graphic}}" (click)="exportGraphic('_chartER')">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  </div>
+                  <div class="div-icon bg-success" placement="left" ngbTooltip="{{nls.toolTip.export}}" (click)="exportExcel('_chartER')">
+                    <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                  </div>
+                  <input class="toggleCheckbox" type="checkbox" data-width="100" data-size="xs" data-toggle="toggle" data-chart="_chartER" data-variable="bh_er" 
+                    data-on="Mensual" data-off="Diario" data-onstyle="info" data-offstyle="info" checked>
+                </div>
+                <!--Download-->
+                <!-- height="110" -->
+                <canvas id="ID_BHER"></canvas>
+              </div>
+
+              <hr style="margin: 10px 0;">
+
+              <div class="div-content">
+                <!--Download-->
+                <div class="div-content-icon">
+                  <div class="div-icon bg-warning" placement="left" ngbTooltip="{{nls.toolTip.graphic}}" (click)="exportGraphic('_chartRH')">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  </div>
+                  <div class="div-icon bg-success" placement="left" ngbTooltip="{{nls.toolTip.export}}" (click)="exportExcel('_chartRH')">
+                    <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                  </div>
+                  <input class="toggleCheckbox" type="checkbox" data-width="100" data-size="xs" data-toggle="toggle" data-chart="_chartRH" data-variable="bh_rh" 
+                    data-on="Mensual" data-off="Diario" data-onstyle="info" data-offstyle="info" checked>
+                </div>
+                <!--Download-->
+                <!-- height="110" -->
+                <canvas id="ID_BHRH"></canvas>
+              </div>
+
+              <hr style="margin: 10px 0;">
+
+              <div class="div-content">
+                <!--Download-->
+                <div class="div-content-icon">
+                  <div class="div-icon bg-warning" placement="left" ngbTooltip="{{nls.toolTip.graphic}}" (click)="exportGraphic('_chartQD')">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  </div>
+                  <div class="div-icon bg-success" placement="left" ngbTooltip="{{nls.toolTip.export}}" (click)="exportExcel('_chartQD')">
+                    <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                  </div>
+                  <input class="toggleCheckbox" type="checkbox" data-width="100" data-size="xs" data-toggle="toggle" data-chart="_chartQD" data-variable="bh_qd" 
+                    data-on="Mensual" data-off="Diario" data-onstyle="info" data-offstyle="info" checked>
+                </div>
+                <!--Download-->
+                <!-- height="110" -->
+                <canvas id="ID_BHQD"></canvas>
+              </div>
+              <!-- <table datatable [dtOptions]="dtOptions" class="table table-sm table-hover row-border hover" style="padding-top: 15px;">
+              <thead class="text-white">
+                <tr>
+                  <th>#</th>
+                  <th>Cuenca</th>
+                  <th>Área</th>
+                  <th>Fecha registro</th>
+                  <th>Precipitación</th>
+                  <th>ETP</th>
+                  <th>ETR</th>
+                  <th>Escurrimiento</th>
+                  <th>Caudal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Foo</td>
+                  <td>2,512</td><td>05/06/2019</td>
+                  <td>Bar</td><td>Bar</td><td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Someone</td>
+                  <td>2,512</td><td>05/06/2019</td>
+                  <td>Bar</td>
+                  <td>Bar</td>
+                  <td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Iamout</td><td>Bar</td>
+                  <td>Ofinspiration</td><td>Bar</td><td>Bar</td>
+                  <td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Yoda</td>
+                  <td>Skywalker</td><td>Bar</td>
+                  <td>Bar</td><td>Bar</td><td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>Patrick</td><td>Bar</td>
+                  <td>Dupont</td><td>Bar</td><td>Bar</td><td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>Barack</td><td>Bar</td><td>Bar</td>
+                  <td>Obama</td><td>Bar</td><td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+                <tr>
+                  <td>7</td><td>Bar</td>
+                  <td>François</td>
+                  <td>Holland</td><td>Bar</td><td>Bar</td><td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>Michel</td><td>Bar</td>
+                  <td>Popo</td><td>Bar</td><td>Bar</td><td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>Chuck</td><td>Bar</td>
+                  <td>Norris</td><td>Bar</td><td>Bar</td><td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>Simon</td>
+                  <td>Robin</td><td>Bar</td><td>Bar</td><td>Bar</td><td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>Louis</td>
+                  <td>Lin</td><td>Bar</td><td>Bar</td><td>Bar</td><td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>Zelda</td><td>Bar</td>
+                  <td>Link</td><td>Bar</td><td>Bar</td><td>Bar</td>
+                  <td>Bar</td><td>Bar</td>
+                </tr>
+              </tbody>
+            </table> -->
+            </div>
+          </div>
+        </div>
+
+        <div id="{{ID_Tab02}}_Content">
+          <ul class="nav nav-pills mb-1 justify-content-center" role="tablist">
+            <li class="nav-item btn-xs" role="presentation">
+              <a class="nav-link active" id="Tab02-01-tab" data-toggle="pill" href="#Tab02-01" role="tab" aria-controls="Tab02-01" aria-selected="true">
+                <i class="fa fa-bar-chart"></i>&nbsp;
+                {{nls.result.tab02_01}}
+              </a>
+            </li>
+            <li class="nav-item btn-xs" role="presentation">
+              <a class="nav-link" id="Tab02-02-tab" data-toggle="pill" href="#Tab02-02" role="tab" aria-controls="Tab02-02" aria-selected="false">
+                <i class="fa fa-bar-chart"></i>&nbsp;
+                {{nls.result.tab02_02}}
+              </a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane fade show active" id="Tab02-01" role="tabpanel" aria-labelledby="Tab02-01-tab">
+              <div class="div-content">
+                <!--Download-->
+                <div class="div-content-icon">
+                  <div class="div-icon bg-warning" placement="left" ngbTooltip="{{nls.toolTip.graphic}}" (click)="exportGraphic('_chartClimatologia')">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  </div>
+                  <div class="div-icon bg-success" placement="left" ngbTooltip="{{nls.toolTip.export}}" (click)="exportExcel('_chartClimatologia')">
+                    <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <!--Download-->
+                <canvas id="ID_Climatologia" style="padding-top: 30px;"></canvas>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="Tab02-02" role="tabpanel" aria-labelledby="Tab02-02-tab">
+              <div class="div-content">
+                <!--Download-->
+                <div class="div-content-icon">
+                  <div class="div-icon bg-warning" placement="left" ngbTooltip="{{nls.toolTip.graphic}}" (click)="exportGraphic('_chartDeCambio')">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                  </div>
+                  <div class="div-icon bg-success" placement="left" ngbTooltip="{{nls.toolTip.export}}" (click)="exportExcel('_chartDeCambio')">
+                    <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <!--Download-->
+                <canvas id="ID_DeCambio" style="padding-top: 30px;"></canvas>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <fieldset class="p-2" style="border-bottom: 1px solid #dee2e6 !important; border-left: 1px solid #dee2e6 !important; border-right: 1px solid #dee2e6 !important;">
+      <!--<legend class="w-auto">{{nls.tab.tabSecond}}</legend>-->
+      <section style="font-size: 12px;">
+        <h5 class="fs-6">{{nls.about.subTitle_01}}</h5>
+        <p [innerHTML]="content_01" class="text-justify"></p>
+        <h5 class="fs-6">{{nls.about.subTitle_02}}</h5>
+        <p [innerHTML]="content_02" class="text-justify"></p>
+        <h5 class="fs-6">{{nls.about.subTitle_03}}</h5>
+        <p [innerHTML]="content_03" class="text-justify"></p>
+        <p [innerHTML]="content_0301" class="text-left"></p>
+        <div class="row card-deck">
+          <div class="col-sm-6 card border-info p1" >
+            <div class="card-body text-info text-center">
+              <h5 class="card-title">{{nls.contact.person_01}}</h5>
+              <p class="card-text">
+                <i class="fa fa-envelope"></i>
+                &nbsp;{{nls.contact.email_01}}
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-6 card border-info p-1">
+            <div class="card-body text-info text-center">
+              <h5 class="card-title">{{nls.contact.person_02}}</h5>
+              <p class="card-text">
+                <i class="fa fa-envelope"></i>
+                &nbsp;{{nls.contact.email_02}}
+              </p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <h5 class="fs-6">{{nls.about.subTitle_04}}</h5>
+        <div class="row card-deck">
+          <div class="col-sm-12 card border-info p-1">
+            <div class="card-body text-info text-center">
+              <!--<h5 class="card-title">{{nls.contact.person_02}}</h5>-->
+              <p class="card-text" [innerHTML]="content_04">
+                <i class="fa fa-envelope"></i>
+                &nbsp;{{nls.contact.email_02}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <hr style="margin: 20px 0;">
+
+      <section class="div-img">
+        <div class="divBorder">
+          <figure>
+            <img [src]="imageGestion"/>
+          </figure>
+        </div>
+      </section>
+      <h6 class="fs-6">{{nls.sponsor.subTitle_01}}: </h6>
+      <section class="div-img">
+        <div>
+          <figure style="width: 290px;">
+            <img [src]="imageMinam"/>
+          </figure>
+        </div>
+        <div class="divBorder">
+          <figure>
+            <img [src]="imageSenamhi"/>
+          </figure>
+        </div>
+      </section>
+      <h6 class="fs-6">{{nls.sponsor.subTitle_02}}: </h6>
+      <section class="div-img">
+        <div class="divBorder">
+          <figure>
+            <img [src]="imageSuiza"/>
+          </figure>
+        </div>
+      </section>
+      <h6 class="fs-6">{{nls.sponsor.subTitle_03}}: </h6>
+      <section class="div-img">
+        <div class="divBorder">
+          <figure>
+            <img [src]="imageLibelula"/>
+          </figure>
+        </div>
+        <div class="divBorder">
+          <figure>
+            <img [src]="imageSsn"/>
+          </figure>
+        </div>        
+      </section>
+    </fieldset>
+  </div>
+  
+</div>

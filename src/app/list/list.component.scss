@@ -1,0 +1,12 @@
+#Widget_ListLayer {
+    top: 60px;
+    right: 10px;
+    width: 275px;
+}
+
+#Widget_ListLayer .widget-content {
+    padding: 10px 0 5px 10px;
+    overflow-y: scroll;
+    height: 300px;
+    width: 100%;
+}

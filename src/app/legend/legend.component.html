@@ -1,0 +1,74 @@
+<article id="Widget_Legend" class="widget-panel widget-container scroll-container" style="display: block;">
+  <div>
+    <h6 class="text-center">{{paramNom}}</h6>
+    <table id="ID_TableCuenca">
+      <tbody>
+        <tr>
+          <td>{{nls.table.label_01}}</td>
+          <td>{{paramCod}}</td>
+          <td>{{nls.table.label_default}}</td>
+        </tr>
+        <tr>
+          <td>{{nls.table.label_02}}</td>
+          <td>{{paramAAA}}</td>
+          <td>{{nls.table.label_default}}</td>
+        </tr>
+        <tr>
+          <td>{{nls.table.label_03}}</td>
+          <td class="tdRigth">{{paramArea}}</td>
+          <td>{{nls.unit.measureKm2}}</td>
+        </tr>
+        <tr>
+          <td>{{nls.table.label_04}}</td>
+          <td class="tdRigth">{{paramAltu}}</td>
+          <td>{{nls.unit.measureMSNM}}</td>
+        </tr>
+        <tr>
+          <td>{{nls.table.label_05}}</td>
+          <td class="tdRigth">{{paramPrec}}</td>
+          <td>{{nls.unit.measureMM}}</td>
+        </tr>
+        <tr>
+          <td>{{nls.table.label_06}}</td>
+          <td class="tdRigth">{{paramEvap}}</td>
+          <td>{{nls.unit.measureMM}}</td>
+        </tr>
+        <tr>
+          <td>{{nls.table.label_07}}</td>
+          <td class="tdRigth">{{paramIA}}</td>
+          <td>{{nls.table.label_default}}</td>
+        </tr>
+        <tr>
+          <td>{{nls.table.label_08}}</td>
+          <td>{{paramIAC}}</td>
+          <td>{{nls.table.label_default}}</td>
+        </tr>
+      </tbody>
+    </table>       
+    <button type="button" class="btn btn-xs btn-outline-success" placement="right" ngbTooltip="{{nls.toolTip.export}}" (click)="onClickExportCuenca()">
+      <i class="fa fa-cloud-download"></i>&nbsp;{{nls.button.export}}
+    </button>
+  </div>
+  <hr style="margin:10px 0;">
+  <div class="div-content">
+    <!--Download-->
+    <div class="div-content-icon" style="top: 0;">
+      <div class="div-icon bg-warning" placement="left" ngbTooltip="{{nls.toolTip.graphic}}" (click)="exportGraphic('_chartLegend01')">
+        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+      </div>
+    </div>
+    <!--/Download-->
+    <canvas id="ID_Legend01" height="350px" width="230px"></canvas>  
+  </div>
+  <hr style="margin:10px 0;">
+  <div class="div-content">
+    <!--Download-->
+    <div class="div-content-icon" style="top: 0;">
+      <div class="div-icon bg-warning" placement="left" ngbTooltip="{{nls.toolTip.graphic}}" (click)="exportGraphic('_chartLegend02')">
+        <i class="fa fa-bar-chart" aria-hidden="true"></i>
+      </div>
+    </div>
+    <!--/Download-->
+    <canvas id="ID_Legend02" height="320px" width="230px"></canvas>
+  </div>
+</article>

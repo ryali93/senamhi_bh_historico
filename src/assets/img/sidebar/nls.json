@@ -1,0 +1,18 @@
+{
+    "text": {
+        "content": "El visor geográfico que tiene como objetivo evaluar el desempeño hidrológico de un modelo de balance hídrico mensual en Perú utilizando datos de precipitación y evapotranspiración del conjunto de datos meteorológicos de alta resolución PISCO, que ha sido desarrollado por el Servicio Nacional de Meteorología e Hidrología del Perú (SENAMHI)."
+    },
+    "tab": { 
+        "tabFisrt": "Diario",
+        "tabSecond": "Mensual"
+    },
+    "button": {
+        "download": "Decargar datos",
+    },
+    "a": {
+        "font":"Estudio hidrológico (fuente)."
+    },
+    "link": {
+        "mdpi": "https://www.mdpi.com/2073-4441/13/8/1048"
+    }
+}

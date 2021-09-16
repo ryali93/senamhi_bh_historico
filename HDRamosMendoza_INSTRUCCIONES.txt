@@ -1,0 +1,11 @@
+- Para instalar NODE_MODULES
+npm install
+
+- Para levantar el API REST NodeJS
+npm run dev
+
+- Para levantar el angular
+ng serve
+
+- Para generar archivo de producción
+ng build --prod

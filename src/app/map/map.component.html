@@ -1,0 +1,53 @@
+<!-- Map -->
+<div id="map" class="map">
+    <!-- Widget ICON ListLayer -->
+    <div class="toolDiv toolIcon toolBasemap" (click)="onClickWidgetOpen('Widget_ListLayer')" 
+        placement="bottom" ngbTooltip="{{nls.toolTip.listLayer}}">
+        <img class="widgetIcon" [src]="imageLayers">
+    </div>
+    <!-- Widget ICON Basemap -->
+    <div class="toolDiv toolIcon toolListlayer" (click)="onClickWidgetOpen('Widget_BaseMap')" 
+        placement="bottom" ngbTooltip="{{nls.toolTip.baseMap}}">
+        <img class="widgetIcon" [src]="imageBasemap">
+    </div>
+    <!-- Widget - Basemap -->
+    <!--<app-basemap [dataEntrante]="itemWidget" *ngFor="let itemWidget of listWidget"></app-basemap>-->
+    <app-basemap [dataListLayer]="dataListLayer"></app-basemap>
+    <!-- WIDGET - ListLayer -->
+    <app-list [dataListLayer]="dataListLayer"></app-list>
+    <!-- WIDGET - Legend -->
+    <app-legend></app-legend>
+</div>
+<!-- Logo -->
+<div class="toolDiv toolLogo">
+    <div style="width: 265px;">
+        <a target="_blank" href="{{urlMinam}}">
+            <img [src]="imageMinam">
+        </a>
+    </div>
+    <div>
+        <a target="_blank" href="{{urlSenamhi}}">
+            <img [src]="imageSenamhi">
+        </a>
+    </div>
+</div>
+<div class="toolDiv toolLogo mediaQuery-Icon">
+    <div class="toolLogoIcon">
+        <a target="_blank" href="{{urlMinam}}">
+            <img [src]="iconMinam">
+        </a>
+    </div>
+    <div class="toolLogoIcon">
+        <a target="_blank" href="{{urlSenamhi}}">
+            <img [src]="iconSenamhi">
+        </a>
+    </div>
+</div>
+<!-- Home -->
+<div class="toolDiv toolHome" id="ID_Home">
+    <i class="fa fa-home" placement="right" ngbTooltip="{{nls.toolTip.home}}"></i>
+</div>
+<!-- Coordinate -->
+<div class="toolDiv toolCoordinate">
+    <i class="fa fa-crosshairs"></i> | {{nls.name.sr}} : <span id="ID_Longitud"></span> &nbsp; <span id="ID_Latitud"></span>
+</div>

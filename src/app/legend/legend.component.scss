@@ -1,0 +1,63 @@
+#Widget_Legend {
+    background-color: white;
+    bottom: 27px;
+    box-sizing: border-box;
+    color: #000000;
+    left: 5px;
+    width: 255px;
+    height: 200px;
+    min-height: 270px;
+    padding: 5px;
+    //overflow-y: scroll;  
+    overflow-x: hidden;
+    //width: 500px;
+}
+#Widget_Legend h6 {
+    font-weight: 800;
+}
+#Widget_Legend table {
+    font-size: 10.5px;
+}
+#Widget_Legend table tr td {
+    padding-bottom: 5px;
+}
+#Widget_Legend table .tdRigth{
+    text-align: right !important;
+}
+#Widget_Legend table tr > td:nth-child(1) {
+    text-align: right;
+    font-weight: bold;
+    padding-right: 7px;
+    width: 115px;
+}
+#Widget_Legend table tr > td:nth-child(2) {
+    text-align: left;
+    padding-right: 7px;
+}
+#Widget_Legend table tr > td:nth-child(3) {
+    text-align: center;
+}
+
+#Widget_Legend .div-content {
+    position: relative;
+}
+#Widget_Legend .div-content-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    box-sizing: border-box;
+}
+#Widget_Legend .div-content-icon i {
+    padding: 5px;
+}
+#Widget_Legend .div-icon {
+    border: 1px solid white;
+    cursor: pointer;
+    float: right;
+    margin-left: 5px;
+    width: 28px;
+    text-align: center;
+}
+//#c1c1c1
+
+//#f1f1f1
